@@ -1,4 +1,5 @@
 import flet as ft
+from chat_vox import Config
 from settings import SettingsView
 from top import TopView
 
@@ -18,13 +19,17 @@ def main(page: ft.Page):
         top_view = page.views[-1]
         page.go(top_view.route)
 
+    config = Config("config.ini")
+    is_setup = config.read_config()
+
     page.on_route_change = route_change
     page.on_view_pop = view_pop
 
     page.title = "ChatVox"
 
-    page.views.clear()
     page.go("/")
+    if not is_setup:
+        page.go("/settings")
 
 
 if __name__ == "__main__":
