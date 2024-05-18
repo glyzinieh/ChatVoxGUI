@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "ChatVoxGUI"
-#define MyAppVersion "0.1.0"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "glyzinieh"
 #define MyAppURL "https://github.com/glyzinieh/ChatVoxGUI"
 #define MyAppExeName "main.exe"
@@ -20,6 +20,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
+LicenseFile="C:\Users\glyzi\Program\ChatVoxGUI\LICENSE"
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
@@ -47,10 +48,10 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 [INI]
 Filename: "{app}\config.ini"; Section: "General"; Key: "is_setup"; String: "False"; Flags: createkeyifdoesntexist
 
-
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
 Type: files; Name: "{app}\config.ini"
+Type: filesandordirs; Name: "{app}\output"
 
