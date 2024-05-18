@@ -1,0 +1,2 @@
+flet
+'chat-vox@git+https://github.com/glyzinieh/ChatVox.git@0.4.2'
